@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "stage": "jouhou-8d91b",
+    "prod": "jouhou-8d91b",
+    "default": "jouhou-8d91b"
+  }
+}

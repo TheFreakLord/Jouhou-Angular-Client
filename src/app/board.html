@@ -1,0 +1,48 @@
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <p class="title">
+        /{{board?.short}}
+      </p>
+      <p class="subtitle">
+        {{board?.name}}
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <ul>
+      <li *ngFor="let post of posts; let i = index;" style="margin: 5px">
+        <div class="card">
+          <div class="card-content">
+            <div class="content">
+              {{post.content}}
+              <br />
+              <small *ngIf="timeAgo">{{timeAgo[i]}}</small>
+            </div>
+          </div>
+          <footer class="card-footer">
+            <a class="card-footer-item" uiSref="post" [uiParams]="{boardShort: board.short, postId: post.id}">View</a>
+            <a class="card-footer-item">Report</a>
+          </footer>
+        </div>
+      </li>
+    </ul>
+    <article class="media" style="padding-top: 50px">
+      <div class="media-content">
+        <p class="control">
+          <textarea class="textarea" placeholder="Add a post..." [(ngModel)]="newPostContent"></textarea>
+        </p>
+        <nav class="level">
+          <div class="level-left">
+            <div class="level-item">
+              <a class="button is-info" (click)="submitPost()">Post</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </article>
+  </div>
+</section>

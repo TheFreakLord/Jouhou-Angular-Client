@@ -1,0 +1,60 @@
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <p class="title">
+        /{{boardShort}}
+      </p>
+      <p class="subtitle" *ngIf="post">
+        Post#{{post.id}}
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" *ngIf="post">
+  <div class="container">
+    <div class="card">
+      <div class="card-content">
+        <div class="content">
+          {{post.content}}
+          <br />
+          <small>{{postAgo}}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr style="width: 50%; margin: auto" />
+
+<section class="section">
+  <div class="container">
+    <ul>
+      <li *ngFor="let comment of comments; let i = index;" style="margin: 5px">
+        <div class="card">
+          <div class="card-content">
+            <div class="content">
+              {{comment.content}}
+              <br />
+              <small *ngIf="timeAgo">{{timeAgo[i]}}</small>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <article class="media" style="padding-top: 50px">
+      <div class="media-content">
+        <p class="control">
+          <textarea class="textarea" placeholder="Add a comment..." [(ngModel)]="newCommentContent"></textarea>
+        </p>
+        <nav class="level">
+          <div class="level-left">
+            <div class="level-item">
+              <a class="button is-info" (click)="submitComment()">Post</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </article>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+<!--
+<ul>
+  <li *ngFor="let board of boards">
+    <a uiSref="board" [uiParams]="{boardShort: board.short}">
+      <h2><i>{{board.name}}</i> <b>{{board.short}}</b></h2>
+    </a>
+  </li>
+</ul>
+!-->
+
+<section class="section">
+  <div class="container">
+    <div class="columns" *ngFor="let column of boards; let row = index;">
+      <div class="column" *ngFor="let board of column; let col = index;">
+        <div uiSref="board" [uiParams]="{boardShort: board.short}" >
+          <p class="notification has-text-centered" [ngClass]="colors[(row)*3+col]">
+            {{board.name}} - /{{board.short}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
